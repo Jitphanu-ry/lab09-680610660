@@ -1,5 +1,12 @@
 # Lecture 09 - RESTful API (Part 3)
 
+ป้อนข้อมูลนักศึกษา
+รหัส นศ.: 680610660
+
+ชื่อ-สกุล : จิตรภาณุ ริยะสาร
+
+Vercel URL : 
+
 ### Content
 
 - Current API
