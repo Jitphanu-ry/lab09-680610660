@@ -70,7 +70,7 @@ router.get("/", (req: Request, res: Response) => {
     }
     //student see only youself
     if(user.role === "STUDENT"){
-      const findstudent = enrollments.find((e)=>e.studentId === user.studentId)
+      const findstudent = enrollments.filter((e)=>e.studentId === user.studentId)
       return res.status(200).json({
         success:true,
         data:findstudent
