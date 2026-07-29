@@ -130,6 +130,7 @@ router.post("/", (req: Request, res: Response) => {
     })
     }
 
+    //enroll course
     if(user.role === "STUDENT"){
       if(enroll.courseId && enroll.studentId){
       const findIndex = enrollments.findIndex((e)=>e.courseId === enroll.courseId && e.studentId === enroll.studentId);
@@ -158,6 +159,7 @@ router.post("/", (req: Request, res: Response) => {
         })
       }
 
+      //check there not course in student enroll
       if(findIndex === -1 && student){
         const add_Enroll = enrollments.push(enroll);
         const add_Course = student.courses?.push(enroll.courseId);
@@ -175,6 +177,7 @@ router.post("/", (req: Request, res: Response) => {
   })
 });
 
+//delete /api/v2/student/enroll
 router.delete("/", (req: Request, res: Response) => {
     const enroll = req.body as Enrollment;
     const authHeader = req.headers["authorization"];
@@ -251,7 +254,7 @@ router.delete("/", (req: Request, res: Response) => {
           message: "you can't drop other student course"
         })
       }
-
+      //check there course in student enroll
       if(findIndex !== -1 && student){
         const delete_Enroll = enrollments.splice(findIndex,1);
         const courseidx = student.courses?.findIndex((c)=>c=== enroll.courseId);
